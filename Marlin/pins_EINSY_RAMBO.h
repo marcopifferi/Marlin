@@ -60,6 +60,8 @@
   #define Y_STOP_PIN       11
   #define Z_STOP_PIN       10
 
+  // #define SERVO0_PIN         10
+  // #define Z_MIN_PIN          11 //Y-MIN on board.
 #else
 
   #define X_STOP_PIN       X_DIAG_PIN
@@ -78,7 +80,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  10
+  #define Z_MIN_PROBE_PIN  11
 #endif
 
 //
