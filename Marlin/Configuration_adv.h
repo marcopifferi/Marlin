@@ -378,7 +378,7 @@
 
 // Homing hits each endstop, retracts by these distances, then does a slower bump.
 #define X_HOME_BUMP_MM 0
-#define Y_HOME_BUMP_MM 0
+#define Y_HOME_BUMP_MM 5
 #define Z_HOME_BUMP_MM 0
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 //#define QUICK_HOME                     // If homing includes X and Y, do a diagonal move initially
@@ -1098,7 +1098,7 @@
   #define X_CURRENT          800  // rms current in mA. Multiply by 1.41 for peak current.
   #define X_MICROSTEPS        16  // 0..256
 
-  #define Y_CURRENT          800
+  #define Y_CURRENT          1300
   #define Y_MICROSTEPS        16
 
   #define Z_CURRENT          800
@@ -1113,7 +1113,7 @@
   #define Z2_CURRENT         800
   #define Z2_MICROSTEPS       16
 
-  #define E0_CURRENT         600
+  #define E0_CURRENT         800
   #define E0_MICROSTEPS       16
 
   #define E1_CURRENT         800
@@ -1142,7 +1142,7 @@
    * Use Trinamic's ultra quiet stepping mode.
    * When disabled, Marlin will use spreadCycle stepping mode.
    */
- #define STEALTHCHOP
+ // #define STEALTHCHOP
 
   /**
    * Monitor Trinamic TMC2130 and TMC2208 drivers for error conditions,
@@ -1199,7 +1199,7 @@
 
   #if ENABLED(SENSORLESS_HOMING)
     #define X_HOMING_SENSITIVITY  4
-    #define Y_HOMING_SENSITIVITY  4
+    // #define Y_HOMING_SENSITIVITY  4
     // #define Z_HOMING_SENSITIVITY  8
   #endif
 
