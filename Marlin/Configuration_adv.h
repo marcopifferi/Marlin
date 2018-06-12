@@ -377,7 +377,7 @@
 // @section homing
 
 // Homing hits each endstop, retracts by these distances, then does a slower bump.
-#define X_HOME_BUMP_MM 0
+#define X_HOME_BUMP_MM 5
 #define Y_HOME_BUMP_MM 5
 #define Z_HOME_BUMP_MM 0
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
@@ -1195,7 +1195,7 @@
    * It is advised to set X/Y/Z_HOME_BUMP_MM to 0.
    * M914 X/Y/Z to live tune the setting
    */
-  #define SENSORLESS_HOMING // TMC2130 only
+  //#define SENSORLESS_HOMING // TMC2130 only
 
   #if ENABLED(SENSORLESS_HOMING)
     #define X_HOMING_SENSITIVITY  4

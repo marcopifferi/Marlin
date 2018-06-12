@@ -68,13 +68,14 @@
   // #define Y_STOP_PIN       Y_DIAG_PIN
   #define Y_STOP_PIN       11
 
-  #if ENABLED(BLTOUCH)
-    #define Z_STOP_PIN     11   // Y-MIN
-    #define SERVO0_PIN     10   // Z-MIN
-  #else
-    #define Z_STOP_PIN     10
-  #endif
 
+#endif
+
+#if ENABLED(BLTOUCH)
+  #define Z_STOP_PIN     10   // Z-MIN
+  #define SERVO0_PIN     62   // PK0 PIN
+#else
+  #define Z_STOP_PIN     10
 #endif
 
 //
