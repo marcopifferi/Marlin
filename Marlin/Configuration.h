@@ -689,7 +689,7 @@
  */
 #define BLTOUCH
 #if ENABLED(BLTOUCH)
-  #define BLTOUCH_DELAY 375   // (ms) Enable and increase if needed
+  #define BLTOUCH_DELAY 1000   // (ms) Enable and increase if needed
 #endif
 
 /**
@@ -842,15 +842,15 @@
 
 // The size of the print bed
 #define X_BED_SIZE 200
-#define Y_BED_SIZE 200
+#define Y_BED_SIZE 175
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -40
-#define Y_MIN_POS -40
+#define X_MIN_POS -26
+#define Y_MIN_POS -38
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE+X_MIN_POS
-#define Y_MAX_POS Y_BED_SIZE+Y_MIN_POS
-#define Z_MAX_POS 250
+#define Y_MAX_POS Y_BED_SIZE/*+Y_MIN_POS*/
+#define Z_MAX_POS 170
 
 /**
  * Software Endstops
