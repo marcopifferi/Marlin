@@ -395,7 +395,7 @@ void ST7920_Lite_Status_Screen::draw_degree_symbol(uint8_t x, uint8_t y, bool dr
     const uint8_t x_word  = x >> 1;
     const uint8_t y_top   = degree_symbol_y_top;
     const uint8_t y_bot   = y_top + sizeof(degree_symbol)/sizeof(degree_symbol[0]);
-    for(uint8_t i = y_top; i < y_bot; i++) {
+    for (uint8_t i = y_top; i < y_bot; i++) {
       uint8_t byte = pgm_read_byte_near(p_bytes++);
       set_gdram_address(x_word,i+y*16);
       begin_data();
@@ -617,8 +617,8 @@ void ST7920_Lite_Status_Screen::draw_status_message(const char *str) {
   begin_data();
   const uint8_t lcd_len = 16;
   #if ENABLED(STATUS_MESSAGE_SCROLLING)
- 
-    uint8_t slen = lcd_strlen(str);
+
+    uint8_t slen = utf8_strlen(str);
 
     // If the string fits into the LCD, just print it and do not scroll it
     if (slen <= lcd_len) {
@@ -639,7 +639,7 @@ void ST7920_Lite_Status_Screen::draw_status_message(const char *str) {
       const char *stat = str + status_scroll_offset;
 
       // Get the string remaining length
-      const uint8_t rlen = lcd_strlen(stat);
+      const uint8_t rlen = utf8_strlen(stat);
 
       // If we have enough characters to display
       if (rlen >= lcd_len) {
@@ -670,7 +670,7 @@ void ST7920_Lite_Status_Screen::draw_status_message(const char *str) {
     }
   #else
     // Get the UTF8 character count of the string
-    uint8_t slen = lcd_strlen(str);
+    uint8_t slen = utf8_strlen(str);
 
     // Just print the string to the LCD
     write_str(str, lcd_len);
@@ -868,9 +868,7 @@ void ST7920_Lite_Status_Screen::update_status_or_position(bool forceUpdate) {
         #if ENABLED(DISABLE_REDUCED_ACCURACY_WARNING)
           true
         #else
-          axis_known_position[X_AXIS] &&
-          axis_known_position[Y_AXIS] &&
-          axis_known_position[Z_AXIS]
+          all_axes_known()
         #endif
       );
     }
