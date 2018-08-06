@@ -1092,9 +1092,6 @@
  * (https://github.com/teemuatlut/TMC2208Stepper).
  */
 #if HAS_TRINAMIC
-  #define R_SENSE           0.22  // R_sense resistor for SilentStepStick2130
-
-#if ENABLED(HAVE_TMC2130) || ENABLED(HAVE_TMC2208)
 
   #define R_SENSE           0.22  //
   #define HOLD_MULTIPLIER    0.0  // Scales down the holding current from run current
@@ -1103,7 +1100,7 @@
   #define X_CURRENT          700  // rms current in mA. Multiply by 1.41 for peak current.
   #define X_MICROSTEPS        16  // 0..256
 
-  #define Y_CURRENT          700
+  #define Y_CURRENT          900
   #define Y_MICROSTEPS        16
 
   #define Z_CURRENT          800
