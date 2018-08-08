@@ -612,7 +612,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 250, 250, 200, 5000 }
+#define DEFAULT_MAX_ACCELERATION      { 800, 800, 200, 5000 }
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -622,7 +622,7 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          250    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION          800    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  900    // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   250    // X, Y, Z acceleration for travel (non printing) moves
 
@@ -640,15 +640,15 @@
 #define DEFAULT_EJERK                  1.5
 
 /**
- * Realtime Jerk Control
+ * S-Curve Acceleration
  *
  * This option eliminates vibration during printing by fitting a Bézier
  * curve to move acceleration, producing much smoother direction changes.
- * Because this is computationally-intensive, a 32-bit MCU is required.
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-//#define BEZIER_JERK_CONTROL
+#define S_CURVE_ACCELERATION
+
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -878,7 +878,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE/*+X_MIN_POS*/
 #define Y_MAX_POS Y_BED_SIZE/*+Y_MIN_POS*/
-#define Z_MAX_POS 170
+#define Z_MAX_POS 200
 
 /**
  * Software Endstops
@@ -1014,9 +1014,9 @@
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
-  #define LEFT_PROBE_BED_POSITION 0
+  #define LEFT_PROBE_BED_POSITION 15
   #define RIGHT_PROBE_BED_POSITION (X_BED_SIZE-15)
-  #define FRONT_PROBE_BED_POSITION 5
+  #define FRONT_PROBE_BED_POSITION 15
   #define BACK_PROBE_BED_POSITION (Y_BED_SIZE - 15)
 
   // Probe along the Y axis, advancing X after each column
